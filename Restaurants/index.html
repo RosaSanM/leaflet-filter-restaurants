@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
   </head>
   <body>
-    <div class="row">    
+    <div class="row" id="rest">    
       <p>Tipos de restaurantes:
         <span>
           <select id='kind_food_selector' name="select">
@@ -22,10 +22,17 @@
         </span>
       </p>
     </div>
+    <div class="row" id="rest" >    
+      <span id= "restaurants">
+      
+      </span>
+      
+    </div>
     
     <div id="mapid" class="row"></div>
     <style>
-		#mapid { height: 400px;}
+		#mapid { height: 400px; margin-top: 10px;}
+    
 	  </style>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
