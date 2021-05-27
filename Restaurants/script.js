@@ -41,25 +41,19 @@ $('#kind_food_selector').on('change', function() {
 function kind_food (kind) {
 	let exist = document.getElementById('kind_food');
 	if(exist){
-				
 		let father = exist.parentNode;
 		father.removeChild(exist);
 		
 	}
-	
-
-	
 		//create new select options
 		let selectRestaurant = document.getElementById('restaurants');
-		//let divRest = document.getElementById('rest')
-		//let parr = document.createElement('p');
+		(document.getElementById('hidden').classList.remove('hidden'));
 		let element = document.createElement('select');
 		
+
 		element.id = ('kind_food');
 		element.name = ('select2');
-		//parr.textContent = ('Restaurantes: ')
 		
-		//selectRestaurant.appendChild(parr);
 		selectRestaurant.appendChild(element);
 		//default option
 		let optionRestaurant = document.createElement('option');
