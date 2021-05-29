@@ -10,29 +10,24 @@
   <body>
     <div class="row" id="rest">    
       <p>Tipos de restaurantes:
-        <span>
-          <select id='kind_food_selector' name="select">
-            <option value="">Elige</option>
-            <option value="mexicana">Mexicana</option>
-            <option value="mediterranea">Mediterránea</option>
-            <option value="vegetariana">Vegetariana</option>
-            <option value="japonesa">Japonesa</option>
-            <option value="boliviana">Boliviana</option>
-          </select>
+        <span id="categories">
+         
         </span>
       </p>
     </div>
-    <div class="row" id="rest" >    
-      <span id= "restaurants">
-      
-      </span>
-      
+    <div class="row" id="rest" > 
+      <p class='hidden' id='hidden'>Restaurantes:  
+        <span id= "restaurants">
+        
+        </span>
+      </p> 
     </div>
     
     <div id="mapid" class="row"></div>
     <style>
-		#mapid { height: 400px; margin-top: 10px;}
-    
+		#mapid { height: 400px; margin-top: 10px;};
+    .hidden { display: none };
+    .show { display: block };
 	  </style>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

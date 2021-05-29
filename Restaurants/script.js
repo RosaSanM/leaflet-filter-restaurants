@@ -1,3 +1,4 @@
+//map options
 var map = L.map('mapid').on('load', onMapLoad).setView([41.400, 2.206], 9);
 map.locate({setView: true, maxZoom: 17});
 
@@ -29,13 +30,48 @@ function onMapLoad() {
 	});
 }
 
-//filter kind of food
-$('#kind_food_selector').on('change', function() {
-  console.log(this.value);
-  let kind = this.value;
-  render_to_map(data_markers, this.value);
-  kind_food (kind);
-});
+window.onload = function kindFoodSelector() {
+	
+	//create new select options
+	let selectRestaurant = document.getElementById('categories');
+	let element = document.createElement('select');
+	
+	element.id = ('kind_food_selector');
+	element.name = ('select');
+	
+	selectRestaurant.appendChild(element);
+	//default option
+	let optionRestaurant = document.createElement('option');
+	optionRestaurant.value = (`Elige categoria`);
+	optionRestaurant.text = (`Elige categoria`);
+	element.appendChild(optionRestaurant);
+	
+	//get info from database/create new array with unique values from database kinds
+	let kinds = [];	
+	for(let i in data_markers) {
+		kinds.push(data_markers[i].kind_food);
+	}
+	let categorie     = kinds.toString();
+	let categories    = categorie.split(',');
+	let finalCategory = Array.from(new Set(categories));
+		
+	//create categories from db
+	for(let x in finalCategory) {
+		let optionRestaurant = document.createElement('option');
+		optionRestaurant.value = (finalCategory[x]);
+		optionRestaurant.text = (finalCategory[x]);
+		element.appendChild(optionRestaurant);
+	}
+
+	//filter kind of food
+	$('#kind_food_selector').on('change', function() {
+		console.log(this.value);
+		let kind = this.value;
+		render_to_map(data_markers, this.value);
+		kind_food (kind);
+	});
+				
+};
 
 
 function kind_food (kind) {
@@ -43,7 +79,6 @@ function kind_food (kind) {
 	if(exist){
 		let father = exist.parentNode;
 		father.removeChild(exist);
-		
 	}
 		//create new select options
 		let selectRestaurant = document.getElementById('restaurants');
